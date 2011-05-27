@@ -59,7 +59,6 @@ filetype plugin indent on
 
 " Color scheme
 syn on
-"colorscheme torte
 set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
