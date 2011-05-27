@@ -1,0 +1,25 @@
+# If you see warnings you shoold choose between original perl.snippets and my one
+snippet cl
+	package ${1:ClassName};
+	
+	use strict;
+	use warnings;
+	${2}
+	sub new {
+		my $class = shift;
+		bless {@_}, $class;
+	}
+	
+	1;
+
+snippet sub
+	=head2 $1
+	What $1 does
+	=cut
+	
+	sub ${1:function} {
+		my ${2}$self = shift;
+	}
+
+snippet slurp
+	my $${1:var} = do { local $/ = undef; open my $F, "<", ${2:file}; <$F> };
