@@ -198,5 +198,5 @@ endif
 let g:netrw_ftp_cmd="ftp -i"
 
 " Personal data!
-let g:github_user = "*********"
+let g:github_user = "yko"
 let g:github_token = "********"
