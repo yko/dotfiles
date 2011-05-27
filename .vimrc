@@ -14,6 +14,9 @@
 " Git wrapper so awesome, it should be illegal
 " https://github.com/tpope/vim-fugitive/
 
+" Post your code to gist.github.com from vim
+" https://github.com/mattn/gist-vim
+
 " Organize/Navigate projects of files in IDE-like way
 " Ships with my minor modifications
 " https://github.com/yko/project.tar.gz
