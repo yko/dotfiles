@@ -96,7 +96,7 @@ nmap <silent> <C-F4> :tabclose<CR>
 "" Filetypes
 
 " Perl stuff
-autocmd FileType perl match ErrorMsg '\%>80v.\+'
+autocmd FileType perl match ErrorMsg '\%>78v.\+'
 autocmd FileType perl set autowrite
 autocmd FileType perl set errorformat=%f:%l:%m
 autocmd FileType perl set makeprg=perl\ -c\ %\ $*
