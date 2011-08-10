@@ -24,9 +24,10 @@
 " Enable pathogen
 call pathogen#infect()
 
-" Enable perlbrew
-let $PATH=$HOME . "/perl5/perlbrew/bin:" . $PATH
-let $PATH=$HOME . "/perl5/perlbrew/perls/perl-5.14.0/bin:" . $PATH
+" Enable perlbrew path
+if has("gui_running") && filereadable($HOME . "/perl5/perlbrew/etc/bashrc")
+  let $PATH=system("source " . $HOME . "/perl5/perlbrew/etc/bashrc; echo -n $PATH")
+endif
 
 let g:multi_snips=1
 set nocompatible
