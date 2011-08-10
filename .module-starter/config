@@ -1,0 +1,6 @@
+author:  Yaroslav Korshak
+email:   yko@cpan.org
+builder: Module::Install
+plugins: Module::Starter::Simple Module::Starter::PBP
+template_dir: /home/korshak/.module-starter/PBP
+ignores_type: git
