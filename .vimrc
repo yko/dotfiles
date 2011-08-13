@@ -162,7 +162,11 @@ augroup END
 " Gui-related
 
 if has("gui_running")
+    " No toolbar
     set guioptions-=T
+    " Text tabs
+    set guioptions-=e
+
     if has("gui_gtk2")
         set guifont=DejaVu\ Sans\ Mono\ 9
     elseif has("x11")
