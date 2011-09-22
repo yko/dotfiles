@@ -166,6 +166,17 @@ if has("gui_running")
     set guioptions-=T
     " Text tabs
     set guioptions-=e
+    " Only console dialogs
+    set guioptions+=c
+
+    " No menubar
+    set guioptions-=m
+
+    " No scrollbars
+"    set guioptions-=l
+"    set guioptions-=L
+"    set guioptions-=r
+"    set guioptions-=R
 
     if has("gui_gtk2")
         set guifont=DejaVu\ Sans\ Mono\ 9
