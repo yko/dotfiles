@@ -24,11 +24,6 @@
 " Enable pathogen
 call pathogen#infect()
 
-" Enable perlbrew path
-if has("gui_running") && filereadable($HOME . "/perl5/perlbrew/etc/bashrc")
-  let $PATH=system("source " . $HOME . "/perl5/perlbrew/etc/bashrc; echo -n $PATH")
-endif
-
 let g:multi_snips=1
 set nocompatible
 set filetype=on
@@ -47,30 +42,15 @@ set fileformats=unix,dos
 set nowrap
 set ls=2
 set ttyfast
+
 " ru keyboard mapping
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 " advansed statusline with char codes
 set statusline=%F%m%r%h%w\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%03l,%03v]\ [%p%%] 
 set modeline
 
-" Show whitespaces
-set list!
-set listchars=trail:·,tab:>-
-
-set iskeyword=@,48-57,_,192-255 " WTF?
-
 filetype plugin indent on
-
-" Color scheme
-syn on
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_underline=0
-set t_Co=256
-colorscheme solarized
-
-set vb t_vb=
 
 " Key Mappings
 nmap <silent> <C-n> :tabnew<CR>
@@ -94,27 +74,6 @@ nmap <silent> <C-F4> :tabclose<CR>
     endfunction
 
 "" Filetypes
-
-" Perl stuff
-autocmd FileType perl match ErrorMsg '\%>78v.\+'
-autocmd FileType perl set autowrite
-autocmd FileType perl set errorformat=%f:%l:%m
-autocmd FileType perl set makeprg=perl\ -c\ %\ $*
-autocmd FileType perl setlocal equalprg=perltidy
-autocmd FileType perl setlocal foldmethod=syntax
-autocmd BufNewFile,BufRead *.p[lm] compiler perl
-
-let perl_fold = 1
-let perl_fold_blocks = 1
-let perl_sync_dist = 400
-
-let perl_nofold_packages = 1
-let perl_include_pod = 1
-
-let perl_extended_vars  = 1
-
-"let mojo_disable_html  = 1
-let mojo_highlight_data = 1
 
 " project.tar.gz
 let g:proj_window_width = 30
@@ -159,58 +118,10 @@ augroup LastChange
     au BufWritePre Changes :call UpdateChangeTimestamp()
 augroup END
 
-" Gui-related
-
-if has("gui_running")
-    " No toolbar
-    set guioptions-=T
-    " Text tabs
-    set guioptions-=e
-    " Only console dialogs
-    set guioptions+=c
-
-    " No menubar
-    set guioptions-=m
-
-    " No scrollbars
-"    set guioptions-=l
-"    set guioptions-=L
-"    set guioptions-=r
-"    set guioptions-=R
-
-    if has("gui_gtk2")
-        set guifont=DejaVu\ Sans\ Mono\ 9
-    elseif has("x11")
-        set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
-    else
-        set guifont=DejaVu\ Sans\ Mono:h9:cDEFAULT
-    endif
-
-    autocmd GUIEnter * set columns=225
-    autocmd GUIEnter * set lines=78
-    autocmd GUIEnter * winpos 0 0
-endif
-
-" Session management
-" Experimental
-
-function! s:CloseProject()
-   let s:bc = bufname('\.vimprojects')
-   if bufexists(s:bc)
-       exec ':bunload ' . bufnr(s:bc)
-   endif
-endfunction 
-
-autocmd VimLeavePre * call s:CloseProject()
-autocmd VimLeavePre * mksession! ~/.mysession
-autocmd SessionLoadPost call s:CloseProjects()
-
-set sessionoptions=curdir,tabpages,winsize
-
-if argc() == 0
-  silent! source ~/.mysession
-  call s:CloseProject()
-endif
-
 " Misc
 let g:netrw_ftp_cmd="ftp -i"
+
+source $HOME/.vim/colors.vim
+source $HOME/.vim/gui.vim
+source $HOME/.vim/perl-customization.vim
+source $HOME/.vim/sessions.vim
