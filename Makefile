@@ -11,7 +11,7 @@ vim: git-executable
 	$(call safeln,.vimrc,~/.vimrc)
 	$(call safeln,.vim,~/.vim)
 	@echo "initialize bundled submodules..."
-	@git submodule update --recursive .vim
+	@git submodule update --init --recursive .vim
 
 git: git-executable
 	@echo "installing git stuff..."
