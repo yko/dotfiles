@@ -14,3 +14,9 @@ set list!
 set listchars=trail:·,tab:>-
 
 set iskeyword=@,48-57,_,192-255 " WTF?
+
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
