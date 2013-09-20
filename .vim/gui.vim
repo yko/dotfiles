@@ -33,6 +33,6 @@ if has("gui_running")
     autocmd GUIEnter * set columns=225
     autocmd GUIEnter * set lines=78
     autocmd GUIEnter * winpos 0 0
-    # I need a fullscreen + 1 on Ubuntu. Not sure about others
+    " I need a fullscreen + 1 on Ubuntu. Not sure about others
     autocmd GUIEnter * set lines+=1
 endif
