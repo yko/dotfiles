@@ -18,8 +18,6 @@
 -isbc   # block comments may only be indented if they have some space characters before the #
 -ci=2   # Continuation indent is 2 colso
 
--b
-
 # for the up-tight folk :)
 -pt=2   # High parenthesis tightness
 -bt=2   # High brace tightness
