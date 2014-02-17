@@ -12,6 +12,7 @@ vim: git-executable
 	$(call safeln,.vim,~/.vim)
 	@echo "initialize bundled submodules..."
 	@git submodule update --init --recursive .vim
+	@curl https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -s -o .vim/autoload/pathogen.vim
 
 git: git-executable
 	@echo "installing git stuff..."
